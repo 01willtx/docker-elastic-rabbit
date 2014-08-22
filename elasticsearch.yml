@@ -1,0 +1,147 @@
+
+
+################################### Cluster ###################################
+
+cluster:
+    name: DDCIntergrations
+    routing:
+        allocation:
+            enable: all
+            concurrent_recoveries: 1
+
+
+#################################### Node #####################################
+
+node.name: InventorySync
+
+# Use the Cluster Health API [http://localhost:9200/_cluster/health], the
+# Node Info API [http://localhost:9200/_nodes] or GUI tools
+# such as <http://www.elasticsearch.org/overview/marvel/>,
+# <http://github.com/karmi/elasticsearch-paramedic>,
+# <http://github.com/lukas-vlcek/bigdesk> and
+# <http://mobz.github.com/elasticsearch-head> to inspect the cluster state.
+
+# A node can have generic attributes associated with it, which can later be used
+# for customized shard allocation filtering, or allocation awareness. An attribute
+# is a simple key value pair, similar to node.key: value, here is an example:
+#
+#node.rack: rack314
+
+# By default, multiple nodes are allowed to start from the same installation location
+# to disable it, set the following:
+#node.max_local_storage_nodes: 1
+
+
+#################################### Index ####################################
+
+# You can set a number of options (such as shard/replica options, mapping
+# or analyzer definitions, translog settings, ...) for indices globally,
+# in this file.
+#
+# Note, that it makes more sense to configure index settings specifically for
+# a certain index, either when creating it or by using the index templates API.
+#
+# See <http://elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules.html> and
+# <http://elasticsearch.org/guide/en/elasticsearch/reference/current/indices-create-index.html>
+# for more information.
+
+# Set the number of shards (splits) of an index (5 by default):
+#
+index.number_of_shards: 5
+
+# Set the number of replicas (additional copies) of an index (1 by default):
+#
+index.number_of_replicas: 0 
+
+
+################################## Discovery ##################################
+
+# Discovery infrastructure ensures nodes can be found within a cluster
+# and master node is elected. Multicast discovery is the default.
+
+# Set to ensure a node sees N other master eligible nodes to be considered
+# operational within the cluster. Its recommended to set it to a higher value
+# than 1 when running more than 2 nodes in the cluster.
+#
+#discovery.zen.minimum_master_nodes: 1
+
+# Set the time to wait for ping responses from other nodes when discovering.
+# Set this option to a higher value on a slow or congested network
+# to minimize discovery failures:
+#
+#discovery.zen.ping.timeout: 3s
+
+# For more information, see
+# <http://elasticsearch.org/guide/en/elasticsearch/reference/current/modules-discovery-zen.html>
+
+# Unicast discovery allows to explicitly control which nodes will be used
+# to discover the cluster. It can be used when multicast is not present,
+# or to restrict the cluster communication-wise.
+#
+# 1. Disable multicast discovery (enabled by default):
+#
+discovery.zen.ping.multicast.enabled: false
+#
+# 2. Configure an initial list of master nodes in the cluster
+#    to perform discovery when new nodes (master or data) are started:
+#
+#discovery.zen.ping.unicast.hosts: ["host1", "host2:port"]
+
+# EC2 discovery allows to use AWS EC2 API in order to perform discovery.
+#
+# You have to install the cloud-aws plugin for enabling the EC2 discovery.
+#
+# For more information, see
+# <http://elasticsearch.org/guide/en/elasticsearch/reference/current/modules-discovery-ec2.html>
+#
+# See <http://elasticsearch.org/tutorials/elasticsearch-on-ec2/>
+# for a step-by-step tutorial.
+
+# GCE discovery allows to use Google Compute Engine API in order to perform discovery.
+#
+# You have to install the cloud-gce plugin for enabling the GCE discovery.
+#
+# For more information, see <https://github.com/elasticsearch/elasticsearch-cloud-gce>.
+
+# Azure discovery allows to use Azure API in order to perform discovery.
+#
+# You have to install the cloud-azure plugin for enabling the Azure discovery.
+#
+# For more information, see <https://github.com/elasticsearch/elasticsearch-cloud-azure>.
+
+################################## Slow Log ##################################
+
+# Shard level query and fetch threshold logging.
+
+#index.search.slowlog.threshold.query.warn: 10s
+#index.search.slowlog.threshold.query.info: 5s
+#index.search.slowlog.threshold.query.debug: 2s
+#index.search.slowlog.threshold.query.trace: 500ms
+
+#index.search.slowlog.threshold.fetch.warn: 1s
+#index.search.slowlog.threshold.fetch.info: 800ms
+#index.search.slowlog.threshold.fetch.debug: 500ms
+#index.search.slowlog.threshold.fetch.trace: 200ms
+
+#index.indexing.slowlog.threshold.index.warn: 10s
+#index.indexing.slowlog.threshold.index.info: 5s
+#index.indexing.slowlog.threshold.index.debug: 2s
+#index.indexing.slowlog.threshold.index.trace: 500ms
+
+################################## GC Logging ################################
+
+#monitor.jvm.gc.young.warn: 1000ms
+#monitor.jvm.gc.young.info: 700ms
+#monitor.jvm.gc.young.debug: 400ms
+
+#monitor.jvm.gc.old.warn: 10s
+#monitor.jvm.gc.old.info: 5s
+#monitor.jvm.gc.old.debug: 2s
+
+################################## Security ################################
+
+# Uncomment if you want to disable JSONP as a valid return transport on the
+# http server. With this enabled, it may pose a security risk, so disabling
+# it unless you need it is recommended.
+#
+#http.jsonp.enable: false

@@ -1,0 +1,74 @@
+{
+    "template_vehicle": {
+        "template": "vehi*",
+        "settings": {
+    		"index": {
+        		"number_of_shards": 4,
+        		"number_of_replicas": 0
+      		}
+    	},
+        "mappings": {
+            "_default_": {
+                "_all": {
+                    "enabled": true
+                },
+                "_source": {
+                    "enabled": false
+                },
+                "_id": {
+                    "path": "vehicleKey"
+                },
+                "_routing": {
+                    "required": true,
+                    "path": "inventoryViewId"
+                }
+            },
+            "vehicleIndex": {
+        		"_all" : {
+                    "enabled" : false
+                },
+            	"_id": {
+                "path": "indexName"
+            },
+            	"_routing": {
+                "required": true,
+                "path": "indexName"
+            },
+            	"properties": {
+                "indexName": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "startedOn": {
+                    "type": "date",
+                    "index": "not_analyzed"
+                },
+                "deleted": {
+                    "type": "boolean",
+                    "index": "not_analyzed"
+                },
+                "deletedOn": {
+                    "type": "date",
+                    "index": "not_analyzed"
+                },
+                "archived": {
+                    "type": "boolean",
+                    "index": "not_analyzed"
+                },
+                "archivedOn": {
+                    "type": "date",
+                    "index": "not_analyzed"
+                },
+                "failure": {
+                    "type": "boolean",
+                    "index": "not_analyzed"
+                },
+                "failureOn": {
+                    "type": "date",
+                    "index": "not_analyzed"
+                }
+            }
+        	}
+        }
+    }
+}

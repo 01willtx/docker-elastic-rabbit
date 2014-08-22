@@ -1,0 +1,816 @@
+{
+    "template": "vehi*",
+    "mappings": {
+        "_default_": {
+            "_all": {
+                "enabled": true
+            },
+            "_source": {
+                "enabled": false
+            },
+            "_id": {
+                "path": "vehicleKey"
+            },
+            "_routing": {
+                "required": true,
+                "path": "inventoryViewId"
+            }
+        },
+            "properties": {
+                "vehicleKey": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "vehicleOwnerCustomerId": {
+                    "type": "integer",
+                    "index": "not_analyzed"
+                },
+                "siteOwnerCustomerId": {
+                    "type": "integer",
+                    "index": "not_analyzed"
+                },
+                "inventoryViewId": {
+                    "type": "integer",
+                    "index": "not_analyzed"
+                },
+                "feedConfigurationId": {
+                    "type": "integer",
+                    "index": "not_analyzed"
+                },
+                "makeId": {
+                    "type": "integer",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "modelId": {
+                    "type": "integer",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "productId": {
+                    "type": "integer",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "productName": {
+                    "type": "multi_field",
+                    "fields": {
+                        "productName": {
+                            "type": "string",
+                            "index": "analyzed",
+                            "boost": 3
+                        },
+                        "productName_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "departmentId": {
+                    "type": "integer",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "departmentName": {
+                    "type": "string",
+                    "index": "analyzed"
+                },
+                "status": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "description": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "hasIncentive": {
+                    "type": "boolean",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "year": {
+                    "type": "multi_field",
+                    "fields": {
+                        "year": {
+                            "type": "integer",
+                            "index": "analyzed"
+                        },
+                        "year_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "make": {
+                    "type": "multi_field",
+                    "fields": {
+                        "make": {
+                            "type": "string",
+                            "index": "analyzed",
+                            "boost": 5
+                        },
+                        "make_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "model": {
+                    "type": "multi_field",
+                    "fields": {
+                        "model": {
+                            "type": "string",
+                            "index": "analyzed",
+                            "boost": 5
+                        },
+                        "model_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "modelLower": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "lastModifiedDate": {
+                    "type": "date",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "trim": {
+                    "type": "multi_field",
+                    "fields": {
+                        "trim": {
+                            "type": "string",
+                            "index": "analyzed",
+                            "boost": 5
+                        },
+                        "trim_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "trimLower": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "doors": {
+                    "type": "integer",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "exteriorColor": {
+                    "type": "multi_field",
+                    "fields": {
+                        "exteriorColor": {
+                            "type": "string",
+                            "index": "analyzed"
+                        },
+                        "exteriorColor_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "extColorGeneric": {
+                    "type": "multi_field",
+                    "fields": {
+                        "extColorGeneric": {
+                            "type": "string",
+                            "index": "analyzed"
+                        },
+                        "extColorGeneric_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "interiorColor": {
+                    "type": "multi_field",
+                    "fields": {
+                        "interiorColor": {
+                            "type": "string",
+                            "index": "analyzed"
+                        },
+                        "interiorColor_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "intColorGeneric": {
+                    "type": "multi_field",
+                    "fields": {
+                        "intColorGeneric": {
+                            "type": "string",
+                            "index": "analyzed"
+                        },
+                        "intColorGeneric_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "driveTrain": {
+                    "type": "multi_field",
+                    "fields": {
+                        "driveTrain": {
+                            "type": "string",
+                            "index": "analyzed"
+                        },
+                        "driveTrain_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "body": {
+                    "type": "multi_field",
+                    "fields": {
+                        "body": {
+                            "type": "string",
+                            "index": "analyzed"
+                        },
+                        "body_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "primaryPhoto": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "photoCount": {
+                    "type": "integer",
+                    "index": "not_analyzed"
+                },
+                "wheelBaseCode": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "styleDescriptionStandard": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "stock": {
+                    "type": "string",
+                    "index_analyzer": "my_ngram_analyzer",
+                    "search_analyzer": "my_lowercase_whitespace_analyzer"
+                },
+                "stockPhotoName": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "bodyChromeStandard": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "styleMatches": {
+                    "type": "integer",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "extColorHexCode": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "intColorHexCode": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "chromeStyleList": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "engineDisplacement": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "transmission": {
+                    "type": "multi_field",
+                    "fields": {
+                        "transmission": {
+                            "type": "string",
+                            "index": "analyzed"
+                        },
+                        "transmission_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "transmissionDescription": {
+                    "type": "string",
+                    "index": "analyzed"
+                },
+                "miles": {
+                    "type": "multi_field",
+                    "fields": {
+                        "miles": {
+                            "type": "integer",
+                            "index": "analyzed"
+                        },
+                        "miles_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "engineBlockType": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "engineAspirationType": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "engineDescription": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "engineDescriptionLower": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "transmissionSpeed": {
+                    "type": "multi_field",
+                    "fields": {
+                        "transmissionSpeed": {
+                            "type": "integer",
+                            "index": "analyzed"
+                        },
+                        "transmissionSpeed_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "fuelType": {
+                    "type": "multi_field",
+                    "fields": {
+                        "fuelType": {
+                            "type": "string",
+                            "index": "analyzed"
+                        },
+                        "fuelType_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "epaCity": {
+                    "type": "multi_field",
+                    "fields": {
+                        "epaCity": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        },
+                        "epaCity_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "epaHighway": {
+                    "type": "multi_field",
+                    "fields": {
+                        "epaHighway": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        },
+                        "epaHighway_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "epaClassification": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "certified": {
+                    "type": "multi_field",
+                    "fields": {
+                        "certified": {
+                            "type": "boolean",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        },
+                        "certified_facet": {
+                            "type": "boolean",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "dealerCertified": {
+                    "type": "multi_field",
+                    "fields": {
+                        "dealerCertified": {
+                            "type": "boolean",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        },
+                        "dealerCertified_facet": {
+                            "type": "boolean",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "dateInStock": {
+                    "type": "multi_field",
+                    "fields": {
+                        "dateInStock": {
+                            "type": "date",
+                            "index": "analyzed",
+                            "include_in_all": false
+                        },
+                        "dateInStock_facet": {
+                            "type": "date",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "exteriorColorCode": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "interiorColorCode": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "evoxVif": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "evoxImagePath": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "unityWorks": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "carFaxOwner": {
+                    "type": "multi_field",
+                    "fields": {
+                        "carFaxOwner": {
+                            "type": "boolean",
+                            "index": "not_analyzed"
+                        },
+                        "carFaxOwner_facet": {
+                            "type": "boolean",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "carFaxHistoryReportUrl": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "dateImagesModified": {
+                    "type": "date",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "price": {
+                    "type": "multi_field",
+                    "fields": {
+                        "price": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "price_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "basePrice": {
+                    "type": "multi_field",
+                    "fields": {
+                        "basePrice": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "basePrice_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "discountedPrice": {
+                    "type": "multi_field",
+                    "fields": {
+                        "discountedPrice": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "discountedPrice_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "productBodyStyleId": {
+                    "type": "integer",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "productBodyStyleName": {
+                    "type": "multi_field",
+                    "fields": {
+                        "productBodyStyleName": {
+                            "type": "string",
+                            "index": "analyzed"
+                        },
+                        "productBodyStyle_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "location": {
+                    "type": "geo_point"
+                },
+                "showAsCustomerId": {
+                    "type": "integer",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "showAsCustomerName": {
+                    "type": "multi_field",
+                    "fields": {
+                        "showAsCustomerName": {
+                            "type": "string",
+                            "index": "not_analyzed"
+                        },
+                        "showAsCustomerName_facet": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "leadDeliveryCustomerId": {
+                    "type": "integer",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "address": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "city": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "state": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "zipCode": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "engineCylinders": {
+                    "type": "multi_field",
+                    "fields": {
+                        "engineCylinders": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "engineCylinders_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "useDiscountPricing": {
+                    "type": "boolean",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "groupingValue": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "makeComposite": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "modelComposite": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "customerNameComposite": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "productComposite": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "productBodyStyleComposite": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "sellingPrice": {
+                    "type": "multi_field",
+                    "fields": {
+                        "sellingPrice": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "sellingPrice_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "msrp": {
+                    "type": "multi_field",
+                    "fields": {
+                        "msrp": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "msrp_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "bookValue": {
+                    "type": "multi_field",
+                    "fields": {
+                        "bookValue": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "bookValue_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "invoice": {
+                    "type": "multi_field",
+                    "fields": {
+                        "invoice": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "invoice_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "nadaPrice": {
+                    "type": "multi_field",
+                    "fields": {
+                        "nadaPrice": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "nadaPrice_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "internetPrice": {
+                    "type": "multi_field",
+                    "fields": {
+                        "internetPrice": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "internetPrice_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "miscPrice1": {
+                    "type": "multi_field",
+                    "fields": {
+                        "miscPrice1": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "miscPrice1_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "miscPrice2": {
+                    "type": "multi_field",
+                    "fields": {
+                        "miscPrice2": {
+                            "type": "integer",
+                            "index": "not_analyzed"
+                        },
+                        "miscPrice2_facet": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                },
+                "showVideos": {
+                    "type": "boolean",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "include_in_all": false
+                },
+                "photos": {
+                    "properties": {
+                        "photoURL": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        },
+                        "photoRank": {
+                            "type": "integer",
+                            "index": "not_analyzed",
+                            "include_in_all": false
+                        }
+                    }
+                }
+            }
+        }
+
+}
